@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Outlet, useLocation, BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+interface AppStates {
+	
 }
 
-export default App;
+interface AppProps {
+	children?: React.ReactNode;
+}
+
+
+export class App extends React.Component<AppProps, AppStates> {
+
+	constructor(props: AppProps) {
+		super(props);
+		this.state = {};
+	}
+
+	render() {
+		return (
+			<div>
+
+			</div>
+		);
+	}
+}

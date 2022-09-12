@@ -1,19 +1,51 @@
 import React from 'react';
+import { useEffect } from "react";
+import { useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Outlet, useLocation, BrowserRouter } from 'react-router-dom';
+import Home from './pages/home/home'
+import Footer from './components/Footer';
+import AboutSite from './pages/footer/aboutsite';
+import EventTrain from './pages/event/eventtrain';
+import { App } from './App';
+
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	document.getElementById('root') as HTMLElement
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export default function ScrollToTop({ children }:{children:any}) {
+	const { pathname } = useLocation();
+	
+	useEffect(() => {
+	  const canControlScrollRestoration = 'scrollRestoration' in window.history
+	  if (canControlScrollRestoration) {
+		window.history.scrollRestoration = 'manual';
+	  }
+  
+	  window.scrollTo(0, 0);
+	}, [pathname]);
+	
+	return children;
+  }
+
+// 主要渲染
+root.render(
+	<React.StrictMode>
+		<BrowserRouter>
+			<ScrollToTop children={null}/>
+			<Routes>
+				<Route path='/' element={<Home />}></Route>
+				<Route path='/eventtrain' element={<EventTrain />}></Route>
+				<Route path='/aboutsite' element={<AboutSite />}></Route>
+			</Routes>
+		</BrowserRouter>,
+
+
+		<App></App>
+	</React.StrictMode>
+);
+
+
+
