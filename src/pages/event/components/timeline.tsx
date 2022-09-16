@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
 import data from "../eventData";
+import { useHorizontalScroll } from "../eventtrain";
 
 interface TimelineStates {
 
@@ -14,65 +15,68 @@ interface TimelineProps {
 
 
 
-export class Timeline extends React.Component<TimelineProps, TimelineStates> {
+function Timeline () {
 
-    constructor(props: TimelineProps) {
-        super(props);
-        this.state = {};
-    }
 
-    readonly river = styled.div`
-        overflow-y: scroll;
+    const River = styled.div`
+        overflow: auto;
         padding-right: 7px;
-
+/*
         &::-webkit-scrollbar {
             display: none;
         }
+        */
     `;
 
-    readonly event = styled.div`
+    const Event = styled.div`
         width: 2000px;
-        height: 2000px;
+        height: 100px;
 
         font-weight: bold;
 		font-family: "微軟正黑體";
         font-size: 50px;
+        white-space: nowrap; 
     `;
-    readonly timePoint = styled.div`
+    const TimePoint = styled.div`
         
     `;
-    readonly ageYear = styled.div`
+    const AgeYear = styled.div`
         
     `;
-    readonly ageMonth = styled.div`
+    const AgeMonth = styled.div`
         
     `;
-    readonly title = styled.div`
+    const Title = styled.div`
         
     `;
 
-    render() {
+    const ScrollRef = useHorizontalScroll();
+
+
         return (
             <div>
-                <this.river>
-                    <this.event>
+                <River ref={ScrollRef}>
+                    <Event>
                         123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123
-                        <this.ageYear>
+                        <AgeYear>
                             
-                        </this.ageYear>
+                        </AgeYear>
 
-                        <this.ageMonth>
+                        <AgeMonth>
 
-                        </this.ageMonth>
+                        </AgeMonth>
 
-                        <this.timePoint>
+                        <TimePoint>
 
-                        </this.timePoint>
+                        </TimePoint>
 
-                        <this.title></this.title>
-                    </this.event>
-                </this.river>
+                        <title></title>
+                    </Event>
+                </River>
             </div>
         );
-    }
+
 }
+
+
+export default Timeline;
