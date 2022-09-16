@@ -71,7 +71,7 @@ export class Home extends React.Component<IndexProps, IndexStates> {
                     ContentBlock_BG={'cool-background.png'}
                 />
 
-                <EventBlock eventCode={data.Epinephelinae}/>
+                <EventBlock eventCode={data.Abe_bodyguard}/>
                 <Footer/>
             </div>
 

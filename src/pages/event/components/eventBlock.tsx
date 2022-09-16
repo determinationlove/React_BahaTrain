@@ -23,21 +23,33 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 
 	readonly Introduction = styled.div`
         display: flex;
-		position: relative;
-		justify-content: flex-end;
+		position: fixed;
+		z-index: 10;
+		justify-content: center;
 		align-items: center;
-		width: 100%;
-		height: 1080px;
+    	left: 50%;
     `;
 	readonly BG = styled.div`
 		display: flex;
-		position: absolute;
+		position: relative;
 		justify-content: center;
 		align-items: center;
-		width: 799px;
-		height: 800px;
+		min-width: 39vw;
+		min-height: 40vw;
 		background-color: #54e3cb;
 		border-radius: 80% 20% 70% 30% / 23% 74% 26% 77% ;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			vertical-align: middle;
+			padding-top: 100%;
+			height: 0;
+		}
+		& span {
+			display: inline-block;
+			vertical-align: middle;
+		}
     `;
 	readonly Introduction_Title = styled.p`
 		display: flex;	
@@ -45,7 +57,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		justify-content: center;
 		align-items: center;
 		font-family: "微軟正黑體";
-		font-size: 50px;
+		font-size: 80vm;
 		font-weight: bold;
 		color: #ffffff;
 		padding-bottom: 50%;
@@ -56,7 +68,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		justify-content: center;
 		align-items: center;
 		font-family: "微軟正黑體";
-		font-size: 25px;
+		font-size: 1vw;
 		letter-spacing: 3px;
 		color: #ffffff;
 		padding-left: 50%;
@@ -69,7 +81,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		align-items: center;
 		flex-flow: column;
 		font-family: "微軟正黑體";
-		font-size: 25px;
+		font-size: 1vw;
 		font-weight: bold;
 		color: #4d4d4d;
 		padding-bottom: 10%;
@@ -125,48 +137,47 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 
 	render() {
 		return (
-			<div>
-				<this.Introduction>
-					<this.BG>
-						<this.Introduction_Title>
-							{this.props.eventCode.title}
-						</this.Introduction_Title>
 
-						<this.Introduction_Age>
-							{this.props.eventCode.age}
-						</this.Introduction_Age>
+			<this.Introduction>
+				<this.BG>
+					<this.Introduction_Title>
+						{this.props.eventCode.title}
+					</this.Introduction_Title>
 
-						<this.Introduction_Overturn>
-							事件發展：
-							<p style={{ color:'black' }}>
-								{this.props.eventCode.first} → {this.props.eventCode.last}
-							</p>
-						</this.Introduction_Overturn>
+					<this.Introduction_Age>
+						{this.props.eventCode.age}
+					</this.Introduction_Age>
+
+					<this.Introduction_Overturn>
+						事件發展：
+						<p style={{ color: 'black' }}>
+							{this.props.eventCode.first} → {this.props.eventCode.last}
+						</p>
+					</this.Introduction_Overturn>
 
 
-						<this.linkBlock>
-							<this.links>
-								<this.linksIcon src='img/baha_icon.png' />
-								<this.href href={this.props.eventCode.start_Article} target="_blank" 
+					<this.linkBlock>
+						<this.links>
+							<this.linksIcon src='img/baha_icon.png' />
+							<this.href href={this.props.eventCode.start_Article} target="_blank"
 								style={{ textDecoration: 'none' }}>
-									事件初期文章
-								</this.href>
-								<img src='img/exit-top-right.png' style={{ width:'15px', marginLeft:'3%' }} />
-							</this.links>
+								事件初期文章
+							</this.href>
+							<img src='img/exit-top-right.png' style={{ width: '15px', marginLeft: '3%' }} />
+						</this.links>
 
-							<this.links>
-								<this.linksIcon src='img/baha_icon.png' />
-								<this.href href={this.props.eventCode.final_Article} target="_blank" 
+						<this.links>
+							<this.linksIcon src='img/baha_icon.png' />
+							<this.href href={this.props.eventCode.final_Article} target="_blank"
 								className='a.page-links'>
-									事件後期文章
-								</this.href>
-								<img src='img/exit-top-right.png' style={{ width:'15px', marginLeft:'3%' }} />
-							</this.links>
-						</this.linkBlock>
+								事件後期文章
+							</this.href>
+							<img src='img/exit-top-right.png' style={{ width: '15px', marginLeft: '3%' }} />
+						</this.links>
+					</this.linkBlock>
+				</this.BG>
+			</this.Introduction>
 
-					</this.BG>
-				</this.Introduction>
-			</div >
 		);
 	}
 }
