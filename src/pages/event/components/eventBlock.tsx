@@ -133,6 +133,12 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		height: 35px;
 		padding-right: 5%;
 	`;
+	readonly back = styled.img`
+		display: flex;
+		position: absolute;
+		justify-content: right;
+		align-items: flex-start;
+	`;
 
 
 	render() {
@@ -140,6 +146,8 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 
 			<this.Introduction>
 				<this.BG>
+					<this.back src='img/cancel.png'>
+					</this.back>
 					<this.Introduction_Title>
 						{this.props.eventCode.title}
 					</this.Introduction_Title>
