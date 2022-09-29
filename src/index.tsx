@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Outlet, useLocation, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Outlet, useLocation, BrowserRouter, HashRouter  } from 'react-router-dom';
 import Home from './pages/home/home'
 import Footer from './components/Footer';
 import AboutSite from './pages/footer/aboutsite';
@@ -34,7 +34,7 @@ export default function ScrollToTop({ children }:{children:any}) {
 // 主要渲染
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
+		<HashRouter>
 			<ScrollToTop children={null}/>
 			<Routes>
 				<Route path='/' element={<Home />}></Route>
@@ -42,7 +42,7 @@ root.render(
 				<Route path='/aboutsite' element={<AboutSite />}></Route>
 				<Route path='/Planning' element={<Planning />}></Route>
 			</Routes>
-		</BrowserRouter>,
+		</HashRouter>,
 
 
 		<App></App>
