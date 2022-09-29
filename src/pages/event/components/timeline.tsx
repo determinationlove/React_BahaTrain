@@ -29,7 +29,6 @@ function Timeline() {
     return (
             <River ref={ScrollRef}>
                 <RiverPoint id={data.TzuChi_rapidTest} children={2022} />
-                <RiverPoint id={data.Epinephelinae} children={'　'}/>
                 <RiverPoint id={data.Abe_bodyguard} children={'　'}/>
                 <RiverPoint id={data.interrupt_Pelosi} children={'　'}/>
                 <RiverPoint id={data.GlobalAntiScam} children={'　'}/>
