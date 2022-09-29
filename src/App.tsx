@@ -19,10 +19,11 @@ export class App extends React.Component<AppProps, AppStates> {
 		super(props);
 		this.state = {};
 	}
+	
 
 	render() {
 		return (
-			<div>
+			<div style={{  }}>
 
 			</div>
 		);

@@ -26,7 +26,7 @@ export class ContentBlock_Left extends React.Component<ContentBlock_LeftProps, C
 		const title_style = {
 			display: 'flex',
 			color: 'white',
-			fontSize: '50px',
+			fontSize: 'calc(15px + 2vw)',
 			alignItems: 'center',
 			justifyContent: 'flex-start',
 			height: '50%',
@@ -51,7 +51,7 @@ export class ContentBlock_Left extends React.Component<ContentBlock_LeftProps, C
 			alignItems: 'center',
 			fontFamily: '微軟正黑體',
             color: 'white',
-			fontSize: '18px',
+			fontSize: '1vw',
 			width: '100%',
 			whiteSpace: 'pre-line',
 		} as React.CSSProperties;

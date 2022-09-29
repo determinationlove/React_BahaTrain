@@ -52,7 +52,7 @@ export class EventTrain extends React.Component<EventTrainProps, EventTrainState
 
 	render() {
 		return (
-			<div>
+			<div style={{display:'flex', height:'100%', flexFlow:"column"}}>
 				<Header />
 					<Timeline/>
 				<Footer />

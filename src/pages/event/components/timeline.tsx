@@ -22,10 +22,11 @@ function Timeline() {
         padding-right: 7px;
         font-weight: bold;
         font-family: "微軟正黑體";
+        min-width: calc(100vh - 180px);
+        min-height: calc(100vh - 180px);
     `;
 
     return (
-        <div>
             <River ref={ScrollRef}>
                 <RiverPoint id={data.TzuChi_rapidTest} children={2022} />
                 <RiverPoint id={data.Epinephelinae} children={'　'}/>
@@ -35,7 +36,6 @@ function Timeline() {
                 <RiverPoint id={data.Tainan_killPolice_case} children={'　'}/>
                 <RiverPoint id={data.YangChengLin_EatSeafood} children={'　'}/>
             </River>
-        </div>
     );
 
 }

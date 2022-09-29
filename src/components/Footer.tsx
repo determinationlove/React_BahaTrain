@@ -28,6 +28,7 @@ export class Footer extends React.Component<FooterProps, FooterStates> {
         width: 100%;
         height: 150px;
         background-color: rgba(55, 55, 55);
+        top: 30px;
     `;
 
     readonly nav = styled.nav`
@@ -63,10 +64,8 @@ export class Footer extends React.Component<FooterProps, FooterStates> {
                 <this.nav>
                     <this.block to="/aboutsite">關於本站</this.block>
                     <this.block to="/">更新日誌</this.block>
-                    <this.block to="/">後續規劃</this.block>
+                    <this.block to="/Planning">後續規劃</this.block>
                 </this.nav>
-
-
             </this.bg>
 
         );

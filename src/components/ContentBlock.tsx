@@ -28,7 +28,7 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		const title_style = {
 			display: 'flex',
 			color: 'white',
-			fontSize: '50px',
+			fontSize: 'calc(15px + 2vw)',
 			alignItems: 'center',
 			justifyContent: 'center',
 			position: 'relative',
@@ -69,7 +69,7 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 			alignItems: 'center',
 			fontFamily: '微軟正黑體',
 			fontWeight: 'bold',
-			fontSize: '20px',
+			fontSize: '1.2vw',
 			width: '100%',
 			height: '50%',
 			whiteSpace: 'pre-line',

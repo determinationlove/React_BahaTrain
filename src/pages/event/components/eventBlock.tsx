@@ -30,17 +30,21 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		z-index: 10;
 		justify-content: center;
 		align-items: center;
-    	left: 50%;
+    	left: 60%;
+		top: 20%;
     `;
 	readonly BG = styled.div`
 		display: flex;
 		position: relative;
 		justify-content: center;
 		align-items: center;
-		min-width: 39vw;
-		min-height: 40vw;
+		min-width: 35vw;
+		min-height: 36vw;
 		background-color: #54e3cb;
 		border-radius: 80% 20% 70% 30% / 23% 74% 26% 77% ;
+		border-width: 9px; 
+		border-style: solid;
+		border-color: #ffffff;
 
 		&:before {
 			content: "";
@@ -60,7 +64,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		justify-content: center;
 		align-items: center;
 		font-family: "微軟正黑體";
-		font-size: 80vm;
+		font-size: 2vw;
 		font-weight: bold;
 		color: #ffffff;
 		padding-bottom: 50%;
@@ -105,7 +109,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		align-items: center;
 		font-weight: bold;
 		font-family: "微軟正黑體";
-		font-size: 25px;
+		font-size: 2vw;
 		color: #ffffff;
 		text-decoration: none;
 		width: 100%;
@@ -113,7 +117,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 	`;
 	readonly href = styled.a`
 		font-family: "微軟正黑體";
-		font-size: 25px;
+		font-size: 1.5vw;
 		color: #0088ff;
 		text-decoration: none;
 
@@ -138,13 +142,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 	`;
 	
 
-	close() {
-		this.setState({open: false})
-	}
-
 	render() {
-		//let open_bool = this.state.open ? ;
-
 		return (
 			<this.Introduction>
 				<this.BG>

@@ -44,7 +44,7 @@ export class Home extends React.Component<IndexProps, IndexStates> {
         `;
 
         return (
-            <div>
+            <div style={{ }}>
                 <Header />
                 <ContentBlock
                     title={'什麼是「失智列車」？'}

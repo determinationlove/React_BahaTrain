@@ -32,10 +32,10 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         align-items: center;
         flex-flow: column;
         width: 20%;
-        height: 20%;
+        height: 100%;
         font-weight: bold;
         font-family: "微軟正黑體";
-        font-size: 25px;
+        font-size: 1.2vw;
         white-space: nowrap; 
         margin: 5%;
     `;
@@ -45,6 +45,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         align-items: center;
         flex-flow: column;
         font-size: 25px;
+        color: #00a383;
         //padding: 5%;
     `;
     readonly lineDot = styled.div`
@@ -71,7 +72,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         justify-content: center;
         align-items: center;
         z-index: -1;
-        width: 999px;
+        width: 100vw;
 
         border-bottom: 1px solid red;
         //padding-bottom: 10%;
@@ -79,16 +80,20 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
     readonly Title = styled.div`
         display: inline-block;
         margin-top: 25%;
+        cursor: pointer;
         //padding: 50%;
     `;
     readonly back = styled.img`
         display: flex;
-        position: absolute;
+        position: relative;
         z-index: 1;
-        justify-content: right;
-        align-items: flex-start;
+        //justify-content: right;
+        //align-items: flex-start;
         width: 10%;
         height: 10%;
+        margin-left: 80%;
+        margin-bottom: 90%;
+        cursor: pointer;
     `;
 
 
@@ -105,20 +110,12 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
                     <this.LineHR />
                 </this.lineDot>
                 {
-                    /*
-                    this.state.focus == true && (
-                        <div>
-                            <EventBlock eventCode={this.props.id} />
-
-                            <this.back src='img/cancel.png'
-                                onClick={() => this.setState({ open: false })}/>
-                        </div>
-
-                    )
-                    */
                     this.state.focus ? 
-                        <EventBlock eventCode={this.props.id} 
-                        children={this.back}/>
+                        <EventBlock eventCode={this.props.id}>
+                            <this.back src='img/cancel.png'
+                            onClick={() => this.setState({ focus: false })}
+                            />
+                        </EventBlock>
                     :
                     null
                 }

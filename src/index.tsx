@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import AboutSite from './pages/footer/aboutsite';
 import EventTrain from './pages/event/eventtrain';
 import { App } from './App';
+import Planning from './pages/footer/planning';
 
 
 const root = ReactDOM.createRoot(
@@ -39,6 +40,7 @@ root.render(
 				<Route path='/' element={<Home />}></Route>
 				<Route path='/eventtrain' element={<EventTrain />}></Route>
 				<Route path='/aboutsite' element={<AboutSite />}></Route>
+				<Route path='/Planning' element={<Planning />}></Route>
 			</Routes>
 		</BrowserRouter>,
 

@@ -41,7 +41,7 @@ readonly block = styled(Link)`
     font-family: "微軟正黑體";
     font-weight: bold;
     color: #ffffff;
-    font-size: 22px;
+    font-size: 1.2vw;
     text-decoration:none;
     width: 30%;
     margin-right: 10%;
