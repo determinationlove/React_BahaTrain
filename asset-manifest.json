@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.926be00a.css",
-    "main.js": "/static/js/main.ad5f543f.js",
-    "index.html": "/index.html",
-    "main.926be00a.css.map": "/static/css/main.926be00a.css.map",
-    "main.ad5f543f.js.map": "/static/js/main.ad5f543f.js.map"
+    "main.css": "/React_BahaTrain/static/css/main.926be00a.css",
+    "main.js": "/React_BahaTrain/static/js/main.0450ece2.js",
+    "index.html": "/React_BahaTrain/index.html",
+    "main.926be00a.css.map": "/React_BahaTrain/static/css/main.926be00a.css.map",
+    "main.0450ece2.js.map": "/React_BahaTrain/static/js/main.0450ece2.js.map"
   },
   "entrypoints": [
     "static/css/main.926be00a.css",
-    "static/js/main.ad5f543f.js"
+    "static/js/main.0450ece2.js"
   ]
 }
