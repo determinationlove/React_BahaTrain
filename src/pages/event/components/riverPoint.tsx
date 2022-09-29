@@ -7,6 +7,7 @@ import EventBlock from './eventBlock';
 
 interface RiverPointStates {
     focus: boolean;
+    open: boolean;
 }
 
 interface RiverPointProps {
@@ -19,7 +20,8 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
     constructor(props: RiverPointProps) {
         super(props);
         this.state = {
-            focus: false
+            focus: false,
+            open: false
         };
     }
 
@@ -37,7 +39,6 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         white-space: nowrap; 
         margin: 5%;
     `;
-
     readonly AgeYear = styled.div`
         display: flex;
         justify-content: center;
@@ -46,7 +47,6 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         font-size: 25px;
         //padding: 5%;
     `;
-
     readonly lineDot = styled.div`
         display: flex;
         justify-content: center;
@@ -54,7 +54,6 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
 
         margin: 20%;
     `;
-
     readonly dot = styled.div`
         display: flex;
         position: absolute;
@@ -67,7 +66,6 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         z-index: 1;
         //margin-top: 5%;
     `;
-
     readonly LineHR = styled.div`
         display: flex;
         justify-content: center;
@@ -78,11 +76,19 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         border-bottom: 1px solid red;
         //padding-bottom: 10%;
     `;
-
     readonly Title = styled.div`
         display: inline-block;
         margin-top: 25%;
         //padding: 50%;
+    `;
+    readonly back = styled.img`
+        display: flex;
+        position: absolute;
+        z-index: 1;
+        justify-content: right;
+        align-items: flex-start;
+        width: 10%;
+        height: 10%;
     `;
 
 
@@ -91,7 +97,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         return (
             <this.Event>
                 <this.AgeYear>{this.props.children}</this.AgeYear>
-                <this.Title onClick={() => this.setState({ focus: true })}>
+                <this.Title onClick={() => this.setState({ focus: true, open: true })}>
                     {this.props.id.title}
                 </this.Title>
                 <this.lineDot>
@@ -99,9 +105,22 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
                     <this.LineHR />
                 </this.lineDot>
                 {
+                    /*
                     this.state.focus == true && (
-                        <EventBlock eventCode={this.props.id} />
+                        <div>
+                            <EventBlock eventCode={this.props.id} />
+
+                            <this.back src='img/cancel.png'
+                                onClick={() => this.setState({ open: false })}/>
+                        </div>
+
                     )
+                    */
+                    this.state.focus ? 
+                        <EventBlock eventCode={this.props.id} 
+                        children={this.back}/>
+                    :
+                    null
                 }
             </this.Event>
         );

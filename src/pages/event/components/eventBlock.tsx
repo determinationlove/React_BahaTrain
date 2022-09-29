@@ -6,11 +6,12 @@ import { data } from "../eventData";
 import '../../.././index.css';
 
 interface EventBlockStates {
-
+	
 }
 
 interface EventBlockProps {
 	eventCode: any;
+	children: React.ReactNode;
 }
 
 
@@ -18,7 +19,9 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 
 	constructor(props: EventBlockProps) {
 		super(props);
-		this.state = {};
+		this.state = {
+			
+		};
 	}
 
 	readonly Introduction = styled.div`
@@ -133,21 +136,19 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		height: 35px;
 		padding-right: 5%;
 	`;
-	readonly back = styled.img`
-		display: flex;
-		position: absolute;
-		justify-content: right;
-		align-items: flex-start;
-	`;
+	
 
+	close() {
+		this.setState({open: false})
+	}
 
 	render() {
-		return (
+		//let open_bool = this.state.open ? ;
 
+		return (
 			<this.Introduction>
 				<this.BG>
-					<this.back src='img/cancel.png'>
-					</this.back>
+					{this.props.children}
 					<this.Introduction_Title>
 						{this.props.eventCode.title}
 					</this.Introduction_Title>
