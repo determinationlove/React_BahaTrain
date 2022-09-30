@@ -1,5 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import ClickMe from './ClickMe';
+import { device } from '../device';
 
 interface ContentBlockStates {
 
@@ -23,100 +25,108 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		};
 	}
 
+	readonly title_style = styled.div`
+		display: flex;
+		color: white;
+		font-Size: calc(15px + 2vw);
+		align-Items: center;
+		justify-Content: center;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		font-Weight: bold;
+		z-Index: 3;
+
+		@media ${device.mobileL} {
+			font-Size: 30px;
+		}
+	`;
+
+	readonly BG_style = styled.div`
+		background-Image: url(${this.props.ContentBlock_BG});
+		background-position: center;
+		background-Size: cover;
+		width: 100%;
+		height: 50%;
+		position: absolute;
+		z-Index: 1;
+	`;
+
+	readonly black_style = styled.div`
+		display: flex;
+		background-Color: rgba(0, 0, 0, 0.5);
+		align-Items: center;
+		justify-Content: center;
+		position: absolute;
+		width: 100%;
+		height: 50%;
+		z-Index: 2;
+	`
+
+	readonly text_style = styled.div`
+		display: flex;
+		position: relative;
+		justify-Content: space-around;
+		align-Items: center;
+		font-Family: 微軟正黑體;
+		font-Weight: bold;
+		font-Size: 1.2vw;
+		width: 100%;
+		height: 50%;
+		white-Space: pre-line;
+		z-Index: 5;
+		//paddingTop: 20%;
+
+		@media ${device.mobileL} {
+			width: 90%;
+			font-Size: 15px;
+			//margin-right: 10px;
+			margin-left: 5%;
+			overflow: auto;
+		}
+	`;
+
+	readonly Block_style = styled.div`
+		display: flex;
+		flex-Flow: nowrap;
+		flex-Direction: column;
+		position: relative;
+		background-Color: rgba(235, 250, 250);
+		width: 100%;
+		height: 900px;
+		margin-Top: 20px;
+		margin-Bottom: 20px;
+		border-Radius: 50px;
+	`;
+
 	render() {
-		const title = 'title';
-		const title_style = {
-			display: 'flex',
-			color: 'white',
-			fontSize: 'calc(15px + 2vw)',
-			alignItems: 'center',
-			justifyContent: 'center',
-			position: 'relative',
-			width: '100%',
-			height: '100%',
-			fontWeight: 'bold',
-			zIndex: '3',
-		} as React.CSSProperties;
 
-		const bg = 'BG';
-		const BG_style = {
-			backgroundImage: `url(img/${this.props.ContentBlock_BG})`,
-			backgroundPosition: 'center',
-			backgroundSize: 'cover',
-			width: '100%',
-			height: '50%',
-			position: 'absolute',
-			zIndex: '1',
-		} as React.CSSProperties;
-
-		const black = 'black';
-		const black_style = {
-			display: 'flex',
-			backgroundColor: 'rgba(0, 0, 0, 0.5)',
-			alignItems: 'center',
-			justifyContent: 'center',
-			position: 'absolute',
-			width: '100%',
-			height: '50%',
-			zIndex: '2',
-		} as React.CSSProperties;
-
-		const text = 'text';
-		const text_style = {
-			display: 'flex',
-			position: 'relative',
-			justifyContent: 'space-around',
-			alignItems: 'center',
-			fontFamily: '微軟正黑體',
-			fontWeight: 'bold',
-			fontSize: '1.2vw',
-			width: '100%',
-			height: '50%',
-			whiteSpace: 'pre-line',
-			zIndex: '5',
-			//paddingTop: '20%',
-		} as React.CSSProperties;
-
-
-		const Block = 'Block';
-		const Block_style = {
-			display: 'flex',
-			flexFlow: 'nowrap',
-			flexDirection: 'column',
-			position: 'relative',
-			backgroundColor: 'rgba(235, 250, 250)',
-			width: '100%',
-			height: '900px',
-			marginTop: '20px',
-			marginBottom: '20px',
-			borderRadius: '50px',
-		} as React.CSSProperties;
 
 
 
 		return (
-			<div className={Block + '1'} style={Block_style}>
+			<this.Block_style>
 
-				<div className={black + '1'} style={black_style}></div>
-				<div className={bg + '1'} style={BG_style}></div>
+				<this.black_style></this.black_style>
+				<this.BG_style ></this.BG_style>
 
 				<div style={{
 					display: 'flex', position: 'absolute', width: '100%', height: '100%',
 					justifyContent: 'center', alignItems: 'center0', flexFlow: 'column'
 				}}>
 
-					<div className={title + '1'} style={title_style}>
+					<this.title_style>
 						{this.props.title}
-					</div>
+					</this.title_style>
 
-					<div className={text + '1'} style={text_style}>
+					<this.text_style>
 						{this.props.text}
-					</div>
+					</this.text_style>
 
 					{this.props.children}
 				</div>
 
-			</div>
+			</this.Block_style>
 
 		);
 	}

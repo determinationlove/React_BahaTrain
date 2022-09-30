@@ -51,7 +51,7 @@ export class Home extends React.Component<IndexProps, IndexStates> {
                     text={
                         text1
                     }
-                    ContentBlock_BG={'train.png'}
+                    ContentBlock_BG={'img/train.png'}
                 >
                     <div style={{ 
                         display:'flex', position:'relative', width: '100%', height: '40%',

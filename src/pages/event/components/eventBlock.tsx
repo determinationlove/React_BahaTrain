@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { PropertyName } from 'typescript';
 import { data } from "../eventData";
 import '../../.././index.css';
+import { device } from '../../../device';
 
 interface EventBlockStates {
 	
@@ -32,6 +33,34 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		align-items: center;
     	left: 60%;
 		top: 20%;
+
+		@media ${device.mobileL} {
+			min-width: 200px;
+            min-height: 200px;
+			max-width: 400px;
+            max-height: 400px;
+			left: 10%;
+			top: 42%;
+		}
+
+		@media ${device.tablet} {
+			min-width: 200px;
+            min-height: 200px;
+			max-width: 400px;
+            max-height: 400px;
+			left: 25%;
+			top: 42%;
+		}
+
+        @media ${device.laptop} {
+			left: 65%;
+			top: 30%;
+		}
+
+		@media ${device.desktop} {
+			left: 60%;
+			top: 20%;
+		}
     `;
 	readonly BG = styled.div`
 		display: flex;
@@ -68,6 +97,16 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		font-weight: bold;
 		color: #ffffff;
 		padding-bottom: 50%;
+
+		@media ${device.mobileL} {
+			font-size: 20px;
+			padding-bottom: 45%;
+		}
+
+		@media ${device.laptop} {
+			font-size: 25px;
+			padding-bottom: 45%;
+		}
 	`;
 	readonly Introduction_Age = styled.p`
 		display: flex;	
@@ -92,6 +131,14 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		font-weight: bold;
 		color: #4d4d4d;
 		padding-bottom: 10%;
+
+		@media ${device.mobileL} {
+			font-size: 10px;
+		}
+
+		@media ${device.laptop} {
+			font-size: 13px;
+		}
 	`;
 	readonly linkBlock = styled.div`
 		display: flex;	
@@ -139,6 +186,11 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		width: 35px;
 		height: 35px;
 		padding-right: 5%;
+
+		@media ${device.mobileL} {
+			max-width: 25px;
+			max-height: 25px;
+		}
 	`;
 	
 

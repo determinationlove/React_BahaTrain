@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Timeline from './components/timeline';
 import { Type } from 'typescript';
+import { device } from '../../device';
 
 
 // 事件彙整頁面
@@ -50,13 +51,27 @@ export class EventTrain extends React.Component<EventTrainProps, EventTrainState
 		this.state = {};
 	}
 
+	readonly div = styled.div`
+		display: flex;
+		height: 100%;
+		flex-Flow: column;
+
+		@media ${device.laptop} {
+			max-width: 1920px;
+		}
+
+		@media ${device.desktop} {
+			max-width: 100%;
+		}
+	`;
+
 	render() {
 		return (
-			<div style={{display:'flex', height:'100%', flexFlow:"column"}}>
+			<this.div>
 				<Header />
-					<Timeline/>
+				<Timeline />
 				<Footer />
-			</div>
+			</this.div>
 		);
 	}
 }

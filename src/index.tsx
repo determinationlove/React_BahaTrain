@@ -42,10 +42,7 @@ root.render(
 				<Route path='/aboutsite' element={<AboutSite />}></Route>
 				<Route path='/Planning' element={<Planning />}></Route>
 			</Routes>
-		</HashRouter>,
-
-
-		<App></App>
+		</HashRouter>
 	</React.StrictMode>
 );
 

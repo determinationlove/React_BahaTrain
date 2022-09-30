@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import data from "../eventData";
 import { useHorizontalScroll } from "../eventtrain";
 import RiverPoint from './riverPoint';
+import { device } from '../../../device';
 
 interface TimelineStates {
 
@@ -24,6 +25,21 @@ function Timeline() {
         font-family: "微軟正黑體";
         min-width: calc(100vh - 180px);
         min-height: calc(100vh - 180px);
+
+        @media ${device.mobileL} {
+			min-width: 425px;
+            min-height: 600px;
+		}
+
+        @media ${device.laptop} {
+			min-width: calc(100vh - 180px);
+            min-height: 500px;
+		}
+
+		@media ${device.desktop} {
+			min-width: calc(100vh - 180px);
+            min-height: calc(100vh - 180px);
+		}
     `;
 
     return (
