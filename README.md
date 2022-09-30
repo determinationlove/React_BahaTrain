@@ -82,7 +82,7 @@
 - [ ] 網站後端，使用者可註冊帳號並提交事件資料更新申請
 - [ ] 推薦網站
 - [ ] 網站瀏覽人次
-- [x] RWD
+- [x] RWD（395px & 425px）
 
 到 [這邊](https://github.com/determinationlove/React_BahaTrain/issues) 可以回報問題
 
