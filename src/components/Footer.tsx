@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import AboutSite from '../pages/footer/aboutsite';
+import { device } from '../device';
 
 
 interface FooterStates {
@@ -29,12 +30,23 @@ export class Footer extends React.Component<FooterProps, FooterStates> {
         height: 150px;
         background-color: rgba(55, 55, 55);
         top: 30px;
+
+        @media ${device.mobile} {
+
+        }
     `;
 
     readonly nav = styled.nav`
         display: flex;
         position: relative; 
         width: 30%;
+        @media ${device.mobile} {
+            width: 75%;
+        }
+
+        @media ${device.mobileL} {
+            width: 75%;
+        }
     `;
 
     readonly block = styled(Link)`
@@ -47,6 +59,14 @@ export class Footer extends React.Component<FooterProps, FooterStates> {
         font-size: 16px;
         text-decoration:none;
         width: 30%;
+
+        @media ${device.mobile} {
+            width: 30%;
+        }
+
+        @media ${device.mobileL} {
+            width: 30%;
+        }
 
         &:visited {
 			color: #ffffff;
