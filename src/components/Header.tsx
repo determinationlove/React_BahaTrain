@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { device } from '../device';
 
 interface HeaderStates {
 	
@@ -26,6 +27,15 @@ export class Header extends React.Component<HeaderProps, HeaderStates> {
     width: 100%;
     height: 150px;
     background-color: #29e1c5;
+
+    @media ${device.mobileL} {
+        height: 100px;
+		justify-content: center;
+	}
+
+    @media ${device.laptop} {
+        justify-content: flex-end;
+    }
 `;
 
 readonly nav = styled.nav`
@@ -40,11 +50,24 @@ readonly block = styled(Link)`
     margin: 3%;
     font-family: "微軟正黑體";
     font-weight: bold;
+    white-space: nowrap;
     color: #ffffff;
     font-size: 1.2vw;
-    text-decoration:none;
+    text-decoration: none;
     width: 30%;
     margin-right: 10%;
+
+    @media ${device.mobileL} {
+		font-Size: 20px;
+        margin: 0%;
+        margin-left: 50%;
+	}
+
+    @media ${device.laptop} {
+        margin: 3%;
+        width: 30%;
+        margin-right: 10%;
+    }
 
     &:visited {
         color: #ffffff;

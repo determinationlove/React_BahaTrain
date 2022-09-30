@@ -71,15 +71,15 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		font-Family: 微軟正黑體;
 		font-Weight: bold;
 		font-Size: 1.2vw;
+		word-wrap: break-word;
 		width: 100%;
 		height: 50%;
 		white-Space: pre-line;
 		z-Index: 5;
-		//paddingTop: 20%;
 
 		@media ${device.mobileL} {
 			width: 90%;
-			font-Size: 15px;
+			font-Size: 100%;
 			//margin-right: 10px;
 			margin-left: 5%;
 			overflow: auto;
@@ -100,10 +100,6 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 	`;
 
 	render() {
-
-
-
-
 		return (
 			<this.Block_style>
 
