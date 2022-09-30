@@ -18,7 +18,7 @@ export const plan = {
         icon: "img/idea.png",
     },
     "E":{
-        title: "更高端的響應式技術",
-        icon: "img/idea.png",
+        title: "RWD（395px & 425px）",
+        icon: "img/check.png",
     },
 }
