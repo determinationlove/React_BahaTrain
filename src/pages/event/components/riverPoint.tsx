@@ -48,9 +48,12 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         font-size: 30px;
         color: #00a383;
 
+        @media ${device.mobile} {
+            font-size: 25px;
+        }
+
         @media ${device.mobileL} {
             font-size: 25px;
-
         }
     `;
     readonly lineDot = styled.div`
