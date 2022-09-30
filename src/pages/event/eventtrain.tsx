@@ -56,11 +56,11 @@ export class EventTrain extends React.Component<EventTrainProps, EventTrainState
 		height: 100%;
 		flex-Flow: column;
 
-		@media ${device.laptop} {
-			max-width: 1920px;
+		@media ${device.mobile} {
+			max-width: 390px;
 		}
 
-		@media ${device.desktop} {
+		@media ${device.mobileL} {
 			max-width: 100%;
 		}
 	`;

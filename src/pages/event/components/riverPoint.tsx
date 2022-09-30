@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
 import data from "../eventData";
 import EventBlock from './eventBlock';
+import { device } from '../../../device';
 
 interface RiverPointStates {
     focus: boolean;
@@ -35,7 +36,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         height: 100%;
         font-weight: bold;
         font-family: "微軟正黑體";
-        font-size: 1.2vw;
+        font-size: 15px;
         white-space: nowrap; 
         margin: 5%;
     `;
@@ -44,9 +45,13 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         justify-content: center;
         align-items: center;
         flex-flow: column;
-        font-size: 25px;
+        font-size: 30px;
         color: #00a383;
-        //padding: 5%;
+
+        @media ${device.mobileL} {
+            font-size: 25px;
+
+        }
     `;
     readonly lineDot = styled.div`
         display: flex;
@@ -73,15 +78,18 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         align-items: center;
         z-index: -1;
         width: 100vw;
-
         border-bottom: 1px solid red;
-        //padding-bottom: 10%;
+        
     `;
     readonly Title = styled.div`
         display: inline-block;
         margin-top: 25%;
+        font-size: 24px; 
         cursor: pointer;
-        //padding: 50%;
+
+        @media ${device.mobile} {
+            font-size: 18px; 
+        }
     `;
     readonly back = styled.img`
         display: flex;

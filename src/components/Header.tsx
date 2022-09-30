@@ -28,46 +28,63 @@ export class Header extends React.Component<HeaderProps, HeaderStates> {
     height: 150px;
     background-color: #29e1c5;
 
-    @media ${device.mobileL} {
-        height: 100px;
+    @media ${device.mobile} {
+        max-width: 100%;
+        max-height: 50px;
 		justify-content: center;
 	}
 
-    @media ${device.laptop} {
-        justify-content: flex-end;
+    @media ${device.mobileL}{
+        max-width: 100%;
+        max-height: 50px;
+		justify-content: center;
     }
 `;
 
 readonly nav = styled.nav`
     display: flex;
     position: relative; 
-    width: 25%;
+    justify-content: flex-end;
+
+    @media ${device.mobile} {
+        justify-content: center;
+	}
+
+    @media ${device.mobileL} {
+        justify-content: center;
+	}
 `;
 
 readonly block = styled(Link)`
     display: flex;
     position: relative; 
-    margin: 3%;
+    justify-content: flex-end;
+    //margin: 3%;
     font-family: "微軟正黑體";
     font-weight: bold;
     white-space: nowrap;
     color: #ffffff;
     font-size: 1.2vw;
     text-decoration: none;
-    width: 30%;
-    margin-right: 10%;
+    width: 100%;
+    margin-right: 50%;
+    margin-left: 15%;
 
-    @media ${device.mobileL} {
+    @media ${device.mobile} {
+        max-width: 100%;
 		font-Size: 20px;
-        margin: 0%;
-        margin-left: 50%;
+        justify-content: center;
+        margin-right: 25%;
+        margin-left: 25%;
 	}
 
-    @media ${device.laptop} {
-        margin: 3%;
-        width: 30%;
-        margin-right: 10%;
-    }
+    @media ${device.mobileL} {
+        max-width: 100%;
+		font-Size: 20px;
+        justify-content: center;
+        margin-right: 20%;
+        margin-left: 20%;
+	}
 
     &:visited {
         color: #ffffff;

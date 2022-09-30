@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
+import { device } from '../../../device';
 
 interface ProfileStates {
 
@@ -24,6 +25,10 @@ export class Profile extends React.Component<ProfileProps, ProfileStates> {
 		align-items: center;;
         width: 100%;
         height: 400px;
+
+        @media ${device.mobileL} {
+            height: 100%;
+        }
     `;
     readonly MyPic = styled.img`
         display: flex;
@@ -31,10 +36,15 @@ export class Profile extends React.Component<ProfileProps, ProfileStates> {
         width: 200px;
         height: 200px;
         border-radius:50%;
-        border: 10px;
+        border: 8px;
         border-color: #76bfb7;
         border-style: solid;
         margin-right: 6%;
+
+        @media ${device.mobileL} {
+            width: 100px;
+            height: 100px;
+        }
     `;
     readonly Mydata = styled.p`
         display: flex;
@@ -43,6 +53,10 @@ export class Profile extends React.Component<ProfileProps, ProfileStates> {
 		align-items: center;;
         flex-flow: column;
         width: 1000px;
+
+        @media ${device.mobileL} {
+            width: 50%;
+        }
     `;
     readonly MyName = styled.p`
         display: flex;
@@ -53,6 +67,10 @@ export class Profile extends React.Component<ProfileProps, ProfileStates> {
 		font-size: 30px;
         font-weight: bold;
 		color: #0088ff;
+
+        @media ${device.mobileL} {
+            font-size: 20px;
+        }
     `;
     readonly MyIntroduction = styled.p`
         display: block;
@@ -65,17 +83,30 @@ export class Profile extends React.Component<ProfileProps, ProfileStates> {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+
+        @media ${device.mobileL} {
+            font-size: 15px;
+        }
     `;
     readonly MyURL = styled.div`
         display: flex;
         position: relative; 
         width: 1000px;
         padding-top: 3%;
+
+        @media ${device.mobileL} {
+            padding-top: 10%;
+            width: 100%;
+        }
     `;
     readonly a = styled.a`
         display: flex;
         position: relative; 
         padding-right: 3%;
+    `;
+    readonly b = styled.a`
+        color: #7d7d7dff; 
+        font-Size: 15px;
     `;
 
     render() {
@@ -86,7 +117,7 @@ export class Profile extends React.Component<ProfileProps, ProfileStates> {
                     <this.Mydata>
                         <this.MyName>
                             燐火幽冥
-                            <b style={{color: '#7d7d7dff', fontSize: '25px',}}>／網站作者</b>
+                            <this.b>／網站作者</this.b>
                         </this.MyName>
                         <this.MyIntroduction>
                             技能樹亂點的六邊形戰五渣，什麼都涉獵，什麼都不專精。

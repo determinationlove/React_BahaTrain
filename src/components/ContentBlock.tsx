@@ -37,8 +37,14 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		font-Weight: bold;
 		z-Index: 3;
 
+		@media ${device.mobile} {
+			font-Size: 30px;
+			height: 60%;
+		}
+
 		@media ${device.mobileL} {
 			font-Size: 30px;
+			height: 60%;
 		}
 	`;
 
@@ -50,6 +56,14 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		height: 50%;
 		position: absolute;
 		z-Index: 1;
+
+		@media ${device.mobile} {
+			max-height: 40%;
+		}
+
+		@media ${device.mobileL} {
+			max-height: 40%;
+		}
 	`;
 
 	readonly black_style = styled.div`
@@ -61,6 +75,14 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		width: 100%;
 		height: 50%;
 		z-Index: 2;
+
+		@media ${device.mobile} {
+			max-height: 40%;
+		}
+
+		@media ${device.mobileL} {
+			max-height: 40%;
+		}
 	`
 
 	readonly text_style = styled.div`
@@ -76,6 +98,14 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		height: 50%;
 		white-Space: pre-line;
 		z-Index: 5;
+
+		@media ${device.mobile} {
+			width: 90%;
+			font-Size: 100%;
+			//margin-right: 10px;
+			margin-left: 5%;
+			overflow: auto;
+		}
 
 		@media ${device.mobileL} {
 			width: 90%;
@@ -97,6 +127,10 @@ class ContentBlock extends React.Component<ContentBlockProps, ContentBlockStates
 		margin-Top: 20px;
 		margin-Bottom: 20px;
 		border-Radius: 50px;
+
+		@media ${device.mobile} {
+			max-height: 600px;
+		}
 	`;
 
 	render() {

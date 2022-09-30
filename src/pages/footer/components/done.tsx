@@ -6,6 +6,7 @@ import Header from '../../../components/Header';
 import Profile from '../components/profile';
 import SiteIntroduction from '../components/SiteIntroduction';
 import { plan } from "./plan";
+import { device } from '../../../device';
 
 
 interface DoneStates {
@@ -39,12 +40,20 @@ export class Done extends React.Component<DoneProps, DoneStates> {
 		width: 80%;
         height: 100%;
         margin-left: 1%;
+
+        @media ${device.mobileL} {
+            height: 10%;
+        }
     `;
     readonly done = styled.img`
         display: flex;	
 		position: relative;
         width: 20px;
         margin-right: 10px;
+
+        @media ${device.mobileL} {
+            width: 30px;
+        }
     `;
     readonly text = styled.div`
         src: 'img/ieda.png'; 

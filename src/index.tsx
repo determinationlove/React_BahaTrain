@@ -36,6 +36,7 @@ root.render(
 	<React.StrictMode>
 		<HashRouter>
 			<ScrollToTop children={null}/>
+			
 			<Routes>
 				<Route path='/' element={<Home />}></Route>
 				<Route path='/eventtrain' element={<EventTrain />}></Route>

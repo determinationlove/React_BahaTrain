@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../../../components/Footer';
+import { device } from '../../../device';
 
 interface SiteIntroductionStates {
 
@@ -22,11 +23,17 @@ export class SiteIntroduction extends React.Component<SiteIntroductionProps, Sit
     readonly block = styled.div`
         display: flex;
         position: relative;
+        justify-content: center;
+		align-items: center;
         flex-flow: column;
         width: 90%;
         height: 500px;
         background-color: #e1e1e1;
         margin: 3%;
+
+        @media ${device.mobileL} {
+            height: 100%;
+        }
     `;
     readonly Introduction = styled.div`
         display: flex;
@@ -41,6 +48,14 @@ export class SiteIntroduction extends React.Component<SiteIntroductionProps, Sit
         white-space: nowrap;
         margin: 50px;
         line-height: 2;
+
+        @media ${device.mobileL} {
+            margin: 20px;
+            font-size: 15px;
+            margin: 0px;
+            text-overflow: unset;
+            white-space: unset;
+        }
     `;
     readonly link = styled(Link)`
         color: #222222;
@@ -56,10 +71,10 @@ export class SiteIntroduction extends React.Component<SiteIntroductionProps, Sit
 
     render() {
         return (
-            <div style={{ display: 'flex', flexFlow: 'column', justifyContent: 'center', }}>
+            <div style={{ display: 'flex', flexFlow: 'column', justifyContent: 'center', alignItems: 'center'}}>
                 <this.block>
                     <this.Introduction>
-                        <text>
+                        <text style={{margin:'10px'}}>
                             本站以 React.JS 製作，因為作者想要邊實戰邊學前端工程技術而開發，日後還會因個人學習進度加入更多功能，詳情請見{'\n'}
                             <this.link to="/Planning">後續規劃</this.link><br />
                             所有巴哈姆特文章皆採用「Co」連結，但仍無法保證文章不會被系統刪除。<br />

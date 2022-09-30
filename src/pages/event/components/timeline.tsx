@@ -19,30 +19,31 @@ function Timeline() {
         display: flex;
         //justify-content: center;
         //align-items: center;
-        overflow: hidden;
+        overflow: hidden; 
         padding-right: 7px;
         font-weight: bold;
         font-family: "微軟正黑體";
-        min-width: calc(100vh - 180px);
+        min-width: calc(100px - 180px);
         min-height: calc(100vh - 180px);
 
+        @media ${device.mobile} {
+            min-width: calc(100vh);
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: scroll;
+        }
+
         @media ${device.mobileL} {
-			min-width: 425px;
-            min-height: 600px;
-		}
+            min-width: calc(100vh);
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: scroll;
 
-        @media ${device.laptop} {
-			min-width: calc(100vh - 180px);
-            min-height: 500px;
-		}
-
-		@media ${device.desktop} {
-			min-width: calc(100vh - 180px);
-            min-height: calc(100vh - 180px);
-		}
+        }
     `;
 
     return (
+        <div style={{overflowX:'auto'}}>
             <River ref={ScrollRef}>
                 <RiverPoint id={data.TzuChi_rapidTest} children={2022} />
                 <RiverPoint id={data.Abe_bodyguard} children={'　'}/>
@@ -51,6 +52,8 @@ function Timeline() {
                 <RiverPoint id={data.Tainan_killPolice_case} children={'　'}/>
                 <RiverPoint id={data.YangChengLin_EatSeafood} children={'　'}/>
             </River>
+        </div>
+           
     );
 
 }

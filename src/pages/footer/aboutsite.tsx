@@ -22,7 +22,7 @@ export class AboutSite extends React.Component<AboutSiteProps, AboutSiteStates> 
 
 	render() {
 		return (
-			<div>
+			<div style={{overflowX: 'hidden'}}>
 				<Header />
 				<Profile />
 				<SiteIntroduction />

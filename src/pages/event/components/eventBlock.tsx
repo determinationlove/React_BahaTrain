@@ -31,35 +31,23 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		z-index: 10;
 		justify-content: center;
 		align-items: center;
-    	left: 60%;
+		width: 700px;
+        height: 700px;
+    	left: 62%;
 		top: 20%;
 
+		@media ${device.mobile} {
+			width: 400px;
+            height: 400px;
+			left: 0%;
+			top: 32%;
+		}
+
 		@media ${device.mobileL} {
-			min-width: 200px;
-            min-height: 200px;
-			max-width: 400px;
-            max-height: 400px;
-			left: 10%;
-			top: 42%;
-		}
-
-		@media ${device.tablet} {
-			min-width: 200px;
-            min-height: 200px;
-			max-width: 400px;
-            max-height: 400px;
-			left: 25%;
-			top: 42%;
-		}
-
-        @media ${device.laptop} {
-			left: 65%;
-			top: 30%;
-		}
-
-		@media ${device.desktop} {
-			left: 60%;
-			top: 20%;
+			width: 400px;
+            height: 400px;
+			left: 0%;
+			top: 35%;
 		}
     `;
 	readonly BG = styled.div`
@@ -67,13 +55,23 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		position: relative;
 		justify-content: center;
 		align-items: center;
-		min-width: 35vw;
-		min-height: 36vw;
+		width: 100%;
+		height: 100%;
 		background-color: #54e3cb;
 		border-radius: 80% 20% 70% 30% / 23% 74% 26% 77% ;
 		border-width: 9px; 
 		border-style: solid;
 		border-color: #ffffff;
+
+		@media ${device.mobile} {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		@media ${device.mobileL} {
+			max-width: 100%;
+			max-height: 100%;
+		}
 
 		&:before {
 			content: "";
@@ -98,7 +96,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		color: #ffffff;
 		padding-bottom: 50%;
 
-		@media ${device.mobileL} {
+		@media ${device.mobile} {
 			font-size: 20px;
 			padding-bottom: 45%;
 		}
@@ -119,6 +117,10 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		color: #ffffff;
 		padding-left: 50%;
 		padding-bottom: 75%;
+
+		@media ${device.mobileL} {
+			font-size: 13px;
+		}
     `;
 	readonly Introduction_Overturn = styled.div`
 		display: flex;	
@@ -132,11 +134,11 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		color: #4d4d4d;
 		padding-bottom: 10%;
 
-		@media ${device.mobileL} {
-			font-size: 10px;
+		@media ${device.mobile} {
+			font-size: 12px;
 		}
 
-		@media ${device.laptop} {
+		@media ${device.mobileL} {
 			font-size: 13px;
 		}
 	`;
@@ -156,17 +158,26 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		align-items: center;
 		font-weight: bold;
 		font-family: "微軟正黑體";
-		font-size: 2vw;
+		font-size: 30px;
 		color: #ffffff;
 		text-decoration: none;
 		width: 100%;
 		margin: 20px;
+
 	`;
 	readonly href = styled.a`
 		font-family: "微軟正黑體";
 		font-size: 1.5vw;
 		color: #0088ff;
 		text-decoration: none;
+
+		@media ${device.mobile} {
+			font-size: 18px;
+		}
+
+		@media ${device.mobileL} {
+			font-size: 18px;
+		}
 
 		&:visited {
 			color: #0088ff;
@@ -187,7 +198,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 		height: 35px;
 		padding-right: 5%;
 
-		@media ${device.mobileL} {
+		@media ${device.mobile} {
 			max-width: 25px;
 			max-height: 25px;
 		}
@@ -209,7 +220,7 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 
 					<this.Introduction_Overturn>
 						事件發展：
-						<p style={{ color: 'black' }}>
+						<p style={{ color: 'black', marginBottom:'10px'}}>
 							{this.props.eventCode.first} → {this.props.eventCode.last}
 						</p>
 					</this.Introduction_Overturn>
