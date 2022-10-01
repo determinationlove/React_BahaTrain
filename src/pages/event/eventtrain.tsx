@@ -31,7 +31,7 @@ export function useHorizontalScroll() {
 				else {
 					e.preventDefault();
 					obj.scrollTo({
-						left: obj.scrollLeft + e.deltaY,
+						left: obj.scrollLeft + e.deltaY * 5,
 						behavior: "smooth"
 					});
 				}
