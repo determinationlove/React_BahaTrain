@@ -1,5 +1,6 @@
 export const data = {
     "TzuChi_rapidTest":{
+        year: 2022,
         title: "慈濟快篩事件",
         age: "2022.4",
         first: "惡意收割學生成果",
@@ -9,6 +10,7 @@ export const data = {
     },
 
     "Epinephelinae":{
+        year: 2022,
         title: "石斑魚暫停進口",
         age: "2022.6",
         first: "中國政府過河拆橋",
@@ -18,6 +20,7 @@ export const data = {
     },
 
     "Abe_bodyguard":{
+        year: 2022,
         title: "安倍晉三的保鑣失職",
         age: "2022.7",
         first: "謠傳為女保鑣石田萌美",
@@ -27,6 +30,7 @@ export const data = {
     },
 
     "interrupt_Pelosi":{
+        year: 2022,
         title: "打斷裴洛西發言的口譯官",
         age: "2022.8",
         first: "謠傳為連翊婷",
@@ -36,6 +40,7 @@ export const data = {
     },
 
     "GlobalAntiScam":{
+        year: 2022,
         title: "全球反詐騙組織真假",
         age: "2022.8",
         first: "造假抹黑",
@@ -45,6 +50,7 @@ export const data = {
     },
 
     "Tainan_killPolice_case": {
+        year: 2022,
         title: "台南殺警案嫌疑犯",
         age: "2022.8",
         first: "陳偉捷",
@@ -54,6 +60,7 @@ export const data = {
     },
 
     "YangChengLin_EatSeafood": {
+        year: 2022,
         title: "楊丞琳討論海鮮",
         age: "2022.9",
         first: "汙蔑台灣人吃不起海鮮",

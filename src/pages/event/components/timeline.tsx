@@ -1,28 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRef, useEffect } from "react";
 import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
 import data from "../eventData";
 import EventTrain, { useHorizontalScroll } from "../eventtrain";
-import RiverPoint, {} from './riverPoint';
+import RiverPoint, { } from './riverPoint';
 import { device } from '../../../device';
 
 /*
 export function usePrevious(id:any){
-	const ref = useRef();
-	useEffect(
-		() => {
-			ref.current = id;
-		}
-	)
-	return ref.current;
+    const ref = useRef();
+    useEffect(
+        () => {
+            ref.current = id;
+        }
+    )
+    return ref.current;
 }*/
 
 function Timeline() {
 
     const ScrollRef = useHorizontalScroll();
 
-    const River = styled.div`
+    const [focusEventID, setFocusEventID] = useState<any>(null);
+
+    let idlist = [
+        data.TzuChi_rapidTest,
+        data.Abe_bodyguard,
+        data.interrupt_Pelosi,
+        data.GlobalAntiScam,
+        data.Tainan_killPolice_case,
+        data.YangChengLin_EatSeafood,
+    ]
+
+    let currentYEAR = 0;
+
+    return (
+        <div style={{ overflowX: 'auto' }}>
+            <River ref={ScrollRef}>
+                {idlist.map((id, index) => {
+                    let children = "　";
+
+                    if (currentYEAR != id.year) {
+                        currentYEAR = id.year;
+                        children = currentYEAR + "";
+                    }
+                    return <RiverPoint 
+                    key={"event" + index} id={id} children={children} focusEvent={id == focusEventID} onFocusEvent={setFocusEventID} />
+                })}
+            </River>
+        </div>
+    );
+
+}
+
+
+export default Timeline;
+
+const River = styled.div`
         display: flex;
         //justify-content: center;
         //align-items: center;
@@ -48,21 +83,3 @@ function Timeline() {
 
         }
     `;
-
-    return (
-        <div style={{overflowX:'auto'}}>
-            <River ref={ScrollRef}>
-                <RiverPoint id={data.TzuChi_rapidTest} children={2022} />
-                <RiverPoint id={data.Abe_bodyguard} children={'　'}/>
-                <RiverPoint id={data.interrupt_Pelosi} children={'　'}/>
-                <RiverPoint id={data.GlobalAntiScam} children={'　'}/>
-                <RiverPoint id={data.Tainan_killPolice_case} children={'　'}/>
-                <RiverPoint id={data.YangChengLin_EatSeafood} children={'　'}/>
-            </River>
-        </div>
-    );
-
-}
-
-
-export default Timeline;
