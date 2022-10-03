@@ -11,8 +11,8 @@ import { device } from '../../device';
 
 // 事件彙整頁面
 
-interface EventTrainStates {
-
+export interface EventTrainStates {
+	id: any;
 }
 
 interface EventTrainProps {
@@ -48,9 +48,11 @@ export class EventTrain extends React.Component<EventTrainProps, EventTrainState
 
 	constructor(props: EventTrainProps) {
 		super(props);
-		this.state = {};
+		this.state = {
+			id: null
+		};
 	}
-
+	
 	readonly div = styled.div`
 		display: flex;
 		height: 100%;
@@ -69,7 +71,7 @@ export class EventTrain extends React.Component<EventTrainProps, EventTrainState
 		return (
 			<this.div>
 				<Header />
-				<Timeline />
+				<Timeline/>
 				<Footer />
 			</this.div>
 		);

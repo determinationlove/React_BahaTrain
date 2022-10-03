@@ -3,13 +3,20 @@ import { useRef, useEffect } from "react";
 import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
 import data from "../eventData";
-import { useHorizontalScroll } from "../eventtrain";
-import RiverPoint from './riverPoint';
+import EventTrain, { useHorizontalScroll } from "../eventtrain";
+import RiverPoint, {} from './riverPoint';
 import { device } from '../../../device';
 
-interface TimelineStates {
-
-}
+/*
+export function usePrevious(id:any){
+	const ref = useRef();
+	useEffect(
+		() => {
+			ref.current = id;
+		}
+	)
+	return ref.current;
+}*/
 
 function Timeline() {
 
@@ -53,7 +60,6 @@ function Timeline() {
                 <RiverPoint id={data.YangChengLin_EatSeafood} children={'　'}/>
             </River>
         </div>
-           
     );
 
 }

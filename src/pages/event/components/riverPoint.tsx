@@ -1,32 +1,25 @@
-import React from 'react';
+import React, { useState, ReactElement } from 'react';
 import { useRef, useEffect } from "react";
 import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
 import data from "../eventData";
 import EventBlock from './eventBlock';
 import { device } from '../../../device';
+import EventTrain from '../eventtrain';
+import {  } from './timeline';
 
-interface RiverPointStates {
-    focus: boolean;
-    open: boolean;
-}
+export type Props = {
+    id: any,
+    children?: React.ReactNode
+};
 
-interface RiverPointProps {
-    id: any;
-    children: React.ReactNode;
-}
+export function RiverPoint({ id, children }: Props) {
 
-export class RiverPoint extends React.Component<RiverPointProps, RiverPointStates> {
+    const [Focus, setFocus] = useState(false);
+    //const [Last, setLast] = useState(null);
+    //let prev:any = null;
 
-    constructor(props: RiverPointProps) {
-        super(props);
-        this.state = {
-            focus: false,
-            open: false
-        };
-    }
-
-    readonly Event = styled.div`
+    const Event = styled.div`
         display: flex;
         position: relative;
         justify-content: center;
@@ -40,7 +33,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         white-space: nowrap; 
         margin: 5%;
     `;
-    readonly AgeYear = styled.div`
+    const AgeYear = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
@@ -56,14 +49,14 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
             font-size: 25px;
         }
     `;
-    readonly lineDot = styled.div`
+    const LineDot = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
 
         margin: 20%;
     `;
-    readonly dot = styled.div`
+    const Dot = styled.div`
         display: flex;
         position: absolute;
         justify-content: center;
@@ -75,7 +68,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         z-index: 1;
         //margin-top: 5%;
     `;
-    readonly LineHR = styled.div`
+    const LineHR = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
@@ -84,7 +77,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         border-bottom: 1px solid red;
         
     `;
-    readonly Title = styled.div`
+    const Title = styled.div`
         display: inline-block;
         margin-top: 25%;
         font-size: 24px; 
@@ -94,7 +87,7 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
             font-size: 18px; 
         }
     `;
-    readonly back = styled.img`
+    const Back = styled.img`
         display: flex;
         position: relative;
         z-index: 1;
@@ -107,32 +100,32 @@ export class RiverPoint extends React.Component<RiverPointProps, RiverPointState
         cursor: pointer;
     `;
 
-
-
-    render() {
-        return (
-            <this.Event>
-                <this.AgeYear>{this.props.children}</this.AgeYear>
-                <this.Title onClick={() => this.setState({ focus: true, open: true })}>
-                    {this.props.id.title}
-                </this.Title>
-                <this.lineDot>
-                    <this.dot />
-                    <this.LineHR />
-                </this.lineDot>
-                {
-                    this.state.focus ? 
-                        <EventBlock eventCode={this.props.id}>
-                            <this.back src='img/cancel.png'
-                            onClick={() => this.setState({ focus: false })}
-                            />
-                        </EventBlock>
+    return (
+        <Event>
+            <AgeYear> {children} </AgeYear>
+            <Title onClick={() => {
+                setFocus(true);
+                console.log(Focus);
+            }}>
+                {id.title}
+            </Title>
+            <LineDot>
+                <Dot />
+                <LineHR />
+            </LineDot>
+            {
+                (Focus == true) ?
+                    <EventBlock eventCode={id}>
+                        <Back src='img/cancel.png'
+                            onClick={() => { setFocus(false); }}
+                        />
+                    </EventBlock>
                     :
                     null
-                }
-            </this.Event>
-        );
-    }
+            }
+        </Event>
+    );
+
 }
 
 export default RiverPoint;
