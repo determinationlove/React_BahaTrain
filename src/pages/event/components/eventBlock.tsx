@@ -49,6 +49,13 @@ export class EventBlock extends React.Component<EventBlockProps, EventBlockState
 			left: 0%;
 			top: 35%;
 		}
+
+		@media ${device.laptop} {
+			width: 500px;
+            height: 500px;
+			left: 62%;
+			top: 25%;
+		}
     `;
 	readonly BG = styled.div`
 		display: flex;
